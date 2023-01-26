@@ -15,9 +15,9 @@ int main(int argc, char* argv[])
     ULListStr* dat = new ULListStr();
     for(int count = 0; count < 4; ++count)
 	{
-		dat->push_back("test");
+		dat->push_back("1test");
 
-		cout << "expect 'test': " << dat->get(0) << endl;
+		cout << "expect '1test': " << dat->get(0) << endl;
 
 		dat->pop_back();
 
@@ -25,6 +25,28 @@ int main(int argc, char* argv[])
         cout << "empty 'true' : " << dat->empty() << endl;
 
 	}
+
+    for(int count = 0; count < 4; ++count)
+	{
+		dat->push_back("2test");
+
+		cout << "expect '2test': " << dat->get(0) << endl;
+
+		dat->pop_front();
+
+		cout << "size '0' :" << dat->size() << endl;
+        cout << "empty 'true' : " << dat->empty() << endl;
+	}
+
+    dat->push_back("oldfront");
+	dat->push_back("oldback");
+	dat->pop_front();
+	dat->push_front("newfront");
+	dat->pop_back();
+	dat->push_front("cloudfront");
+	dat->pop_back();
+    dat->pop_front();
+    dat->push_front("newback");
     /*
     for (int i = 0; i < 50; i++) {
         string s = to_string(i);
